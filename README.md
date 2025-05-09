@@ -39,17 +39,11 @@ We use the detection results and RF pilot data to train a GNN for joint optimiza
 
 1. **Train YOLOv5** on labeled images for object detection.
 2. **Run detection** on unseen multi-view camera images.
-3. **Extract features** from detection results and pilot signals.
-4. **Train GNN model** to perform user association and beamforming optimization based on extracted multimodal features.
+3.**Train GNN model** to perform user association and beamforming optimization based on extracted multimodal features.
 
 ---
 
-## 📌 Notes
-
-- The detection stage and optimization stage are decoupled.
-- This framework ensures scalability and can generalize to unseen scenarios using vision and RF data.
-- GNN architecture is designed to exploit spatial relationships and multimodal data dependencies.
-
+ 
 ---
 
 ## 📄 License
