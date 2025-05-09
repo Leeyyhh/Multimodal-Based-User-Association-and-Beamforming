@@ -22,16 +22,16 @@ Train YOLOv5 with supervision to detect users (e.g., vehicles) from multi-camera
 We use the detection results and RF pilot data to train a GNN for joint optimization. Due to device limitations, we precompute detection results and use them directly.
 
 #### 📸 Camera Images
-- First camera images: *[To be added]*
-- Second camera images: *[To be added]*
-- Third camera images: *[To be added]*
-- Fourth camera images: *[To be added]*
+- First camera images: *https://drive.google.com/file/d/17BzrcXxvhINju0FPcEbm7HiWJqRp2LDT/view?usp=drive_link*
+- Second camera images: *[Camera 2](https://drive.google.com/file/d/1TH-mo6iVHRKkDO66S448kZDXgcT-77HW/view?usp=sharing)*
+- Third camera images: *[Camera 3](https://drive.google.com/file/d/1bPdIjcDFpHx-KfeUhmOP16_kXDkNC9d0/view?usp=sharing)*
+- Fourth camera images: *[Camera 4](https://drive.google.com/file/d/1ODPMXXoUPI7X0HBBMqWeDpV1q7vymxNj/view?usp=sharing)*
 
 #### 📦 YOLOv5 Detection Results
-- Four-camera detection results: *[To be added]*
+- Four-camera detection results: *[Detection result in tensor](https://drive.google.com/file/d/1GGs_ZP3ueztmBzYmawAz679lKjuoSFaH/view?usp=sharing)*
 
 #### 📡 RF Pilot Data
-- Pilot data: *[To be added]*
+- Pilot data: *[Communication data](https://drive.google.com/file/d/1RLLXLdPLCgVopW6LRlQrg_ZPHoLoy65N/view?usp=sharing)*
 
 ---
 
