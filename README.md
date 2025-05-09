@@ -12,7 +12,8 @@ Train YOLOv5 with supervision to detect users (e.g., vehicles) from multi-camera
 
 - 🔗 [YOLOv5 Detection Training Dataset](https://drive.google.com/file/d/1zTJ5cJ2EAZE74LPTIOUnJHBjfP08XAC1/view?usp=drive_link)
 
-> **Note**: YOLOv5 is used only for detection. During GNN training, detection parameters are fixed and will not affect the final optimization outcome.
+> **Note**: YOLOv5 is used only for detection. During GNN training, YOLOv5 parameters are fixed.
+> 
 
 ---
 
