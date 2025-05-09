@@ -12,15 +12,15 @@ class CustomDataset(Dataset):
 
         with open(txt_file, 'r') as file:
             self.file_paths = [path.strip() for path in file.readlines()]
-        self.label_paths = [
-            file_path.replace('camera_tensor', 'label').replace('.pth', '.npy')
+        self.commun_paths = [
+            file_path.replace('camera_tensor', 'commun').replace('.pth', '.npy')
             for file_path in self.file_paths
         ]
 
         # Initialize cache
         self.cache = cache
         self.data_cache = {}
-        self.label_cache = {}
+        self.commun_cache = {}
         self.device = torch.device(device)  # Specify the device (default is CPU)
 
     def __len__(self):
@@ -30,20 +30,20 @@ class CustomDataset(Dataset):
         if idx in self.data_cache:
             # Load from cache if already cached
             data = self.data_cache[idx]
-            label = self.label_cache[idx]
+            commun = self.commun_cache[idx]
         else:
             # Load from file system if not cached
             file_path = self.file_paths[idx]
-            label_path = self.label_paths[idx]
+            commun_path = self.commun_paths[idx]
             data = torch.load(file_path).to(self.device)  # Load and move to device
-            label = torch.from_numpy(np.load(label_path, allow_pickle=True)).to(self.device)  # Load, convert to tensor, and move to device
+            commun = torch.from_numpy(np.load(commun_path, allow_pickle=True)).to(self.device)  # Load, convert to tensor, and move to device
 
             # Cache the loaded data if caching is enabled
             if self.cache:
                 self.data_cache[idx] = data
-                self.label_cache[idx] = label
+                self.commun_cache[idx] = commun
 
-        return data, label, self.file_paths[idx]
+        return data, commun, self.file_paths[idx]
 
     def set_seed(self, seed):
         torch.manual_seed(seed)
@@ -61,34 +61,34 @@ class CustomDataset_RF(Dataset):
 
         with open(txt_file, 'r') as file:
             self.file_paths = [path.strip() for path in file.readlines()]
-        self.label_paths = [
-            file_path.replace('camera_tensor', 'label').replace('.pth', '.npy')
+        self.commun_paths = [
+            file_path.replace('camera_tensor', 'commun').replace('.pth', '.npy')
             for file_path in self.file_paths
         ]
 
         # Initialize cache
         self.cache = cache
         self.data_cache = {}
-        self.label_cache = {}
+        self.commun_cache = {}
         self.device = torch.device(device)  # Specify the device (default is CPU)
 
     def __len__(self):
         return len(self.file_paths)
 
     def __getitem__(self, idx):
-        if idx in self.label_cache:
+        if idx in self.commun_cache:
             # Load from cache if already cached
-            label = self.label_cache[idx]
+            commun = self.commun_cache[idx]
         else:
             # Load from file system if not cached
 
-            label_path = self.label_paths[idx]
-            label = torch.from_numpy(np.load(label_path)).to(self.device)  # Load, convert to tensor, and move to device
+            commun_path = self.commun_paths[idx]
+            commun = torch.from_numpy(np.load(commun_path)).to(self.device)  # Load, convert to tensor, and move to device
             # Cache the loaded data if caching is enabled
             if self.cache:
-                self.label_cache[idx] = label
+                self.commun_cache[idx] = commun
 
-        return label, self.file_paths[idx]
+        return commun, self.file_paths[idx]
 
     def set_seed(self, seed):
         torch.manual_seed(seed)
