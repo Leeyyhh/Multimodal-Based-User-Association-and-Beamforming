@@ -29,6 +29,10 @@ We use the detection results and RF pilot data to train a GNN for joint optimiza
 
 #### 📦 YOLOv5 Detection Results
 - Four-camera detection results: *[Detection result in tensor](https://drive.google.com/file/d/1GGs_ZP3ueztmBzYmawAz679lKjuoSFaH/view?usp=sharing)*
+> **Note:**  
+> This detection dataset was generated using a well-trained YOLOv5 model.  
+> The model used is **YOLOv5s**, trained on **DATASET 1** for **100 epochs**.  
+> You can directly use this dataset as input to the GNN model, or alternatively, you may train your own YOLOv5 model on **DATASET 1** and apply it to the multi-view camera images to obtain your own detection results.
 
 #### 📡 RF Pilot Data
 - Pilot data: *[Communication data](https://drive.google.com/file/d/1RLLXLdPLCgVopW6LRlQrg_ZPHoLoy65N/view?usp=sharing)*
