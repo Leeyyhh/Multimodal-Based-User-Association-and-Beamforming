@@ -6,7 +6,7 @@ This repository supports our work on **vision-aided joint user association and b
 
 ## 📁 Dataset Access
 
-### 1. YOLOv5 Training for Object Detection
+### DATASET 1. YOLOv5 Training for Object Detection
 
 Train YOLOv5 with supervision to detect users (e.g., vehicles) from multi-camera views.
 
@@ -17,7 +17,7 @@ Train YOLOv5 with supervision to detect users (e.g., vehicles) from multi-camera
 
 ---
 
-### 2. GNN-Based Optimization: User Association & Beamforming
+### DATASET 2. GNN-Based Optimization: User Association & Beamforming
 
 We use the detection results and RF pilot data to train a GNN for joint optimization. Due to device limitations, we precompute detection results and use them directly.
 
@@ -37,10 +37,15 @@ We use the detection results and RF pilot data to train a GNN for joint optimiza
 
 ## 🔧 Pipeline Overview
 
-1. **Train YOLOv5** on labeled images for object detection.
-2. **Run detection** on unseen multi-view camera images.
-3.**Train GNN model** to perform user association and beamforming optimization based on extracted multimodal features.
+1. **Train YOLOv5** on labeled images for object detection (**DATASET 1**).
 
+2. **Run the well-trained YOLOv5** on multi-view camera images from **DATASET 2** to obtain detection results. These results are then used to generate the training and validation datasets for the GNN-based user association and beamforming network.  
+   *(If your device has sufficient resources, you can transmit the detection results from YOLOv5 directly to the GNN during training.  
+   However, in our implementation, we precompute all detection results and split them into training and validation sets.  
+   This avoids repeated execution of YOLOv5, which would be inefficient since the same samples are reused many times during training.  
+   Note that the YOLOv5 parameters are fixed, so precomputing detections does not affect the final performance.)*
+
+3. **Train the GNN model** using both the detection results and pilot signals to optimize user association and beamforming decisions.
 ---
 
  
